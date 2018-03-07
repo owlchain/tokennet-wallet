@@ -64,6 +64,8 @@ class HistoryTable extends Component {
 					amount = payment.starting_balance;
 					break;
 				case 'payment' :
+					if ( payment.asset_type !== 'native' )
+						continue;
 					const from = payment.from;
 					if ( me === from ) {
 						label = 'wallet_view.sent';
