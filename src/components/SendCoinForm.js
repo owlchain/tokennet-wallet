@@ -80,11 +80,11 @@ class SendCoinForm extends Component {
 			this.setState( { error: "send_coin.error.transaction_amount_null" } );
 			return false;
 		}
-        const balance = Number(
-            this.props.account.balances.find( function(asset) {
-                return asset.asset_type === "native";
-            }).balance
-        );
+		const balance = Number(
+			this.props.account.balances.find( function(asset) {
+				return asset.asset_type === "native";
+			}).balance
+		);
 		if ( this.state.transactionTotal > balance ) {
 			this.setState( { error: "send_coin.error.not_enough_balance" } );
 			return false;
