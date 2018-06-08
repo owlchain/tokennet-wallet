@@ -8,7 +8,9 @@ class MyBalance extends Component {
 	render() {
 		let balance = 0;
 		if ( this.props.account ) {
-			balance = this.props.account.balances[ 0 ].balance;
+			balance = this.props.account.balances.find( function(asset) {
+				return asset.asset_type === "native";
+			}).balance;
 		}
 
 		return (
